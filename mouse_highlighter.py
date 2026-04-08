@@ -6,6 +6,8 @@ import threading
 import json
 import os
 
+from about_dialog import AboutDialog
+
 try:
     import pystray
     from PIL import Image, ImageDraw
@@ -258,6 +260,7 @@ class MouseHighlighter:
             pystray.MenuItem("Mouse Highlighter", None, enabled=False),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("⚙️  Settings", self._on_tray_settings),
+            pystray.MenuItem("❓  About",    self._on_tray_about),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("❌  Quit",     self._on_tray_quit),
         )
@@ -267,6 +270,9 @@ class MouseHighlighter:
             title="Mouse Highlighter",
             menu=menu,
         )
+
+    def _on_tray_about(self, icon, item):
+        self.root.after(0, lambda: AboutDialog(self.root))
 
     def _on_tray_settings(self, icon, item):
         self.root.after(0, lambda: SettingsWindow(self))
