@@ -131,3 +131,55 @@ If this tool saves you time, a coffee is always appreciated!
 ## 📜 License
 
 MIT — free for personal and commercial use.
+
+---
+
+## 📦 Distribution (building the .exe)
+
+To ship a standalone `.exe` that users can run without installing Python:
+
+### Prerequisites (developer only)
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+### Build
+
+```bash
+build.bat
+```
+
+That's it. The script will:
+
+1. Install all build dependencies
+2. Run PyInstaller with the provided `.spec` file
+3. Assemble a `dist/release/` folder containing only what the end user needs
+4. Zip everything into `dist/MouseHighlighter-v1.0-win64.zip`
+
+### What's inside the zip
+
+```
+MouseHighlighter-v1.0-win64.zip
+│
+├── MouseHighlighter.exe      ← double-click to run, no Python needed
+├── config.default.json       ← default settings reference
+└── README.md
+```
+
+The user's personal `config.json` is created automatically on first **Apply** in the same folder as the `.exe`.
+
+### File overview
+
+| File | Committed | Purpose |
+|---|---|---|
+| `mouse_highlighter.py` | ✅ | Main application |
+| `about_dialog.py` | ✅ | Reusable About popup template |
+| `config.default.json` | ✅ | Default settings (reference) |
+| `config.json` | 🚫 | User settings (auto-generated) |
+| `requirements.txt` | ✅ | Runtime deps (for running from source) |
+| `requirements-dev.txt` | ✅ | Runtime + build deps |
+| `mouse_highlighter.spec` | ✅ | PyInstaller build config |
+| `build.bat` | ✅ | One-click build & zip script |
+| `dist/` | 🚫 | Build output (gitignored) |
+| `build/` | 🚫 | PyInstaller temp files (gitignored) |

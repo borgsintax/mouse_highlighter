@@ -11,6 +11,10 @@ dist/
 build/
 .eggs/
 
+# PyInstaller
+*.spec.bak
+*.manifest
+
 # Virtual environments
 venv/
 .venv/

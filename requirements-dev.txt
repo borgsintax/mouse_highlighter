@@ -1,0 +1,6 @@
+# Runtime dependencies
+pystray>=0.19.5
+Pillow>=11.0.0
+
+# Build / packaging (not needed by end users)
+pyinstaller>=6.0.0
