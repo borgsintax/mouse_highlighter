@@ -120,6 +120,14 @@ mouse-highlighter/
 
 ---
 
+## ☕ Support
+
+If this tool saves you time, a coffee is always appreciated!
+
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/odo1969)
+
+---
+
 ## 📜 License
 
 MIT — free for personal and commercial use.
